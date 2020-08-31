@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: projects_db
+  database: vqdevtestdb
   username: postgres
   password: skexotic
 
@@ -60,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: projects_db
+  database: vqdevtestdb
   username: postgres
   password: skexotic
 
