@@ -85,7 +85,6 @@ test:
 #
 production:
   <<: *default
-  url: postgres://plrplzcgbxqfgg:85b5daade27d86eb257c16216138fe6464b4b3a03183ba31f5444f0563ecb12a@ec2-54-166-107-5.compute-1.amazonaws.com:5432/d9tfg02nnrqgn2
   database: d9tfg02nnrqgn2
   username: plrplzcgbxqfgg
   password: 85b5daade27d86eb257c16216138fe6464b4b3a03183ba31f5444f0563ecb12a
