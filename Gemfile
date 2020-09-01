@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # Add Devise
 gem 'devise'
 
+#Add Cancancan
+gem 'cancancan'
+
 #Add Jquery Rails
 gem 'jquery-rails'
 

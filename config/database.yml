@@ -60,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: vqdevtestdata
+  database: vqdevtestdatatest
   username: postgres
   password: skexotic
 
