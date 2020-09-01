@@ -22,6 +22,18 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Add Devise
+gem 'devise'
+
+#Add Jquery Rails
+gem 'jquery-rails'
+
+#Add Bootstrap
+gem 'twitter-bootstrap-rails'
+
+#Add Devise Bootstrap Views
+gem 'devise-bootstrap-views'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

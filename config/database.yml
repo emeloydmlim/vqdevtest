@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: vqdevtestdb
+  database: vqdevtestdata
   username: postgres
   password: skexotic
 
@@ -60,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: vqdevtestdb
+  database: vqdevtestdata
   username: postgres
   password: skexotic
 
@@ -85,6 +85,7 @@ test:
 #
 production:
   <<: *default
-  database: vqdevtest_production
-  username: vqdevtest
-  password: <%= ENV['VQDEVTEST_DATABASE_PASSWORD'] %>
+  url: postgres://plrplzcgbxqfgg:85b5daade27d86eb257c16216138fe6464b4b3a03183ba31f5444f0563ecb12a@ec2-54-166-107-5.compute-1.amazonaws.com:5432/d9tfg02nnrqgn2
+  database: d9tfg02nnrqgn2
+  username: plrplzcgbxqfgg
+  password: 85b5daade27d86eb257c16216138fe6464b4b3a03183ba31f5444f0563ecb12a
