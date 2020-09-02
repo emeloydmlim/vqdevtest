@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class ProjectsTest < ActiveSupport::TestCase
+class ProjectTest < ActiveSupport::TestCase
     def setup
-        @projects = Projects.new(name: "Project Name", description: "Project Description")
+        @projects = Project.new(name: "Project Name", description: "Project Description")
       end
     
       test "name and description should be valid" do

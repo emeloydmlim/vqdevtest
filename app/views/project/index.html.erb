@@ -1,0 +1,31 @@
+<h1>My Projects</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col" colspan="3" style="text-align:center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @projectlist.each do |projects| %>
+        <tr>
+
+            <td><%= projects.name %></td>
+            <td><%= projects.description %></td>
+            <td><%= link_to 'View', project_path(projects) %></td>
+            <td><%= link_to 'Edit', edit_project_path(projects) %></td>
+            <td><%= link_to 'Delete', project_path(projects), method: :delete, data: { confirm: "Please confirm to delete the project: #{projects.name}"} %></td>
+        </tr>
+
+        <%end %>
+        <% if @projectlist.empty? %>
+        <td colspan="5">No Project Added.</td>
+        <%end %>
+
+    </tbody>
+</table>
+
+<%= link_to 'Add Project', new_project_path(), class: "btn btn-primary" %>
