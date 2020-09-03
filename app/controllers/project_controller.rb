@@ -1,4 +1,6 @@
 class ProjectController < ApplicationController
+    load_and_authorize_resource param_method: :my_sanitizer
+    
     def index
         
         #@projectlist= Project.all
@@ -45,7 +47,7 @@ class ProjectController < ApplicationController
 
     def update
         @project = Project.find(params[:id])
-        if @project.update(params.require(:projects).permit(:name, :description))
+        if @project.update(params.require(:project).permit(:name, :description))
         
             flash[:notice] = "Project was updated."
             redirect_to @project
@@ -59,6 +61,12 @@ class ProjectController < ApplicationController
         @project= Project.find(params[:id])
         @project.destroy
         redirect_to project_index_path
+    end
+
+    private
+
+    def my_sanitizer
+        params.require(:project).permit(:name)
     end
   end
   
