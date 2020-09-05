@@ -4,8 +4,6 @@ class ProjectController < ApplicationController
     def index
         
         #@projectlist= Project.all
-       
-       
 
             @projectlist= current_user.projects
         
@@ -49,7 +47,7 @@ class ProjectController < ApplicationController
         @project = Project.find(params[:id])
         if @project.update(params.require(:project).permit(:name, :description))
         
-            flash[:notice] = "Project was updated."
+            flash[:notice] = "Project was successfully updated."
             redirect_to @project
             
         else 
@@ -60,6 +58,7 @@ class ProjectController < ApplicationController
     def destroy
         @project= Project.find(params[:id])
         @project.destroy
+        flash[:notice]='Project was successfully deleted.'
         redirect_to project_index_path
     end
 
