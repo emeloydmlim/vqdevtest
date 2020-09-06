@@ -14,7 +14,11 @@ class ProjectController < ApplicationController
        
         @projects= Project.find(params[:id])
 
+        @tasks = @projects.tasks
+        
+        render :json => @tasks
 
+        
     end
 
     def new 
