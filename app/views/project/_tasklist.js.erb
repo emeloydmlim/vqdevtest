@@ -1,0 +1,6 @@
+
+$("#emsg").html("<%= escape_javascript(bootstrap_flash) %>");
+$("#tasklist").html("<%= escape_javascript(render 'project/tasklist.html') %>");
+
+$("#closeaddtask").click();
+$("#closeedittask").click();

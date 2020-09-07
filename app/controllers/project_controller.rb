@@ -16,8 +16,7 @@ class ProjectController < ApplicationController
 
         @tasks = @projects.tasks
         
-        render :json => @tasks
-
+       
         
     end
 

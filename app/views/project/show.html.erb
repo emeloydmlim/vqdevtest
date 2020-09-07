@@ -1,4 +1,81 @@
-<h1>My Projects</h1>
+<div class="card">
+    <div class="card-header">
+        <h4>Project Info</h4>
+    </div>
+    <div class="card-body">
+        <h5>Name: <%= @projects.name %> </h5>
+        <h5>Description: <%= @projects.description %></h5>
+    </div>
+</div>
 
-<p>Name: <%= @projects.name %> </p>
-<p>Description: <%= @projects.description %></p>
+<h2>Tasks</h2>
+
+<hr>
+<div id="tasklist">
+    <%= render 'project/tasklist' %>
+</div>
+
+
+
+<br>
+<p>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addtask">
+        Add Task
+    </button>
+</p>
+
+<%= form_with scope: :task, url: task_index_path, remote: true, id: @projects.id, class: "nifty_form"  do |f| %>
+<!-- Modal -->
+<div class="modal " id="addtask" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Task</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+
+                    <%= f.label :task %>
+                    <%= f.text_field :task, class: "form-control" %>
+                    <%= hidden_field_tag(:pid, @projects.id) %>
+                </div>
+
+
+                <div class="form-group">
+                    <%= f.label :deadline %>
+                    <%= select_datetime Date.today, prefix: :deadline%>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="closeaddtask" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <%= f.submit :Save ,  class: "btn btn-primary" %>
+
+            </div>
+        </div>
+    </div>
+</div>
+<%end%>
+
+<!-- Modal -->
+<div class="modal " id="edittask" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Task</h5>
+                <button type="button" id="closeedittask" class="close modal-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="editbody"></div>
+
+        </div>
+    </div>
+</div>

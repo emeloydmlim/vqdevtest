@@ -1,0 +1,36 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+
+            <th scope="col">Task</th>
+            <th scope="col">Deadline</th>
+            <th scope="col">Status</th>
+            <th scope="col" colspan="2" style="text-align:center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <% @projects.tasks.each do |tasks| %>
+        <tr>
+
+            <td><%= tasks.task %></td>
+            <td><%= tasks.deadline.strftime("%d/%m/%Y %I:%M %p")   %></td>
+            <td><%= tasks.status? ? "Done"  : "Not Done" %></td>
+
+            <td colspan="2" class="center-block justify-content-center text-center">
+                <%= link_to 'View Files', "#", remote: true, :data => { :toggle => 'modal', :target => '#viewfiles' }, class: "btn btn-info" %>
+                <%= link_to tasks.status? ? "Completed"  : 'Set to Done', task_done_path(tasks), remote: true , class: "btn btn-success", disabled: tasks.status%>
+                <%= link_to 'Edit', edit_task_path(tasks), remote: true, :data => { :toggle => 'modal', :target => '#edittask' }, class: "btn btn-info" %>
+                <%= link_to 'Delete', task_path(tasks), method: :delete, remote: true, data: { confirm: "Please confirm to delete the project: #{tasks.task}"}, class: "btn btn-danger" %>
+            </td>
+
+        </tr>
+
+
+        <%end %>
+        <% if @projects.tasks.empty? %>
+        <td colspan="5">No Project Added.</td>
+        <%end %>
+
+    </tbody>
+</table>

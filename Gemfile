@@ -36,9 +36,10 @@ gem 'jquery-rails'
 
 #Add Bootstrap
 gem 'twitter-bootstrap-rails'
-
 #Add Devise Bootstrap Views
 gem 'devise-bootstrap-views'
+
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
