@@ -5,4 +5,9 @@
 <p>
     Suspendisse sollicitudin, magna ut dapibus luctus, diam eros scelerisque dolor, nec dictum est sem id nulla. Curabitur consequat est a turpis dignissim mattis. Pellentesque ultrices lacinia ante, nec maximus eros. Morbi in nulla et lacus lacinia aliquam. Ut sit amet venenatis magna. Nunc lacus dolor, pretium nec pellentesque at, ultricies sit amet quam. Praesent faucibus eros quis ex bibendum, sit amet tempus diam sagittis. Etiam posuere in lectus vitae tincidunt. Ut eu tellus quis risus congue finibus. Mauris sit amet mattis turpis. Aliquam porta eu elit vel tempus. Donec sed velit vitae lectus ultrices tempus id interdum sapien. Donec bibendum mi non lorem accumsan, vel porta nisi suscipit. Suspendisse neque ante, dictum ac elit nec, volutpat pharetra nisi.</p>
 
+<% if !current_user %>
+
 <%= link_to "Sign In", new_user_session_path , class: "btn m-2 btn-primary " %>
+<%= link_to  "Sign Up", new_user_registration_path , class: "btn m-2 btn-primary"%>
+
+<% end %>
