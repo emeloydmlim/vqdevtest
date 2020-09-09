@@ -1,10 +1,10 @@
 
+$("#viewfilesbody").html("");
 $("#file-modal-title").html("<%=  escape_javascript(@tasks.task) %> File Attachments");
 $("#notice").html("<%= escape_javascript(bootstrap_flash) %>");
 $.ajax({
   method: "GET",
   url: "/viewfiles/" + <%= j @tasks.id %>,
-  //data: { id: <%= j @tasks.id %> }
 })
   .done(function( html ) {
     $("#viewfilesbody").html(html);
