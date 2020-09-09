@@ -12,7 +12,7 @@
 
     <div class="form-group">
         <%= f.label :deadline %>
-        <%= select_datetime Date.today, prefix: :deadline , class: "form-control"%>
+        <%= select_datetime @tasks.deadline, prefix: :deadline , class: "form-control"%>
 
     </div>
 

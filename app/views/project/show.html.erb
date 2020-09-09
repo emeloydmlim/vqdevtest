@@ -1,10 +1,16 @@
 <div class="card">
     <div class="card-header">
         <h4>Project Info</h4>
+
     </div>
     <div class="card-body">
         <h5>Name: <%= @projects.name %> </h5>
         <h5>Description: <%= @projects.description %></h5>
+        <p class="pt-3">
+            <%= link_to 'Edit', edit_project_path(@projects), class: "mr-3" %> |
+            <%= link_to 'View All Projects', project_index_path, class: "mx-3" %>
+        </p>
+
     </div>
 </div>
 
@@ -69,12 +75,28 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Add Task</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Edit Task</h5>
                 <button type="button" id="closeedittask" class="close modal-close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div id="editbody"></div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal " id="attachment" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="attachmentLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="file-modal-title">File Attachments</h5>
+                <button type="button" id="closeedittask" class="close modal-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="viewfilesbody"></div>
 
         </div>
     </div>

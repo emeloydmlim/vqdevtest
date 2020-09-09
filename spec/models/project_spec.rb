@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.describe Project, type: :model do
   #pending "add some examples to (or delete) #{__FILE__}"
   #project {Project.new}
-  let(:project) {Project.new}
+  let(:project) {Project.new(name: "Project Name", description: "Project Description")}
 
-  it "is not valid with no content" do 
+  it "is not valid with no name" do 
+    project.name = ''
     expect(project).not_to be_valid
   end
 

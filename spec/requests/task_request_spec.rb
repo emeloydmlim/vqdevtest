@@ -33,9 +33,11 @@ RSpec.describe "Tasks", type: :request do
             task.project = project
             
             task.save
-            expect { delete :"/task/#{task.id}"}.to change(Task, :count).by(-1)
-            expect(flash[:notice]).to eq 'Task was successfully deleted.'
-           
+            delete task_url(task), xhr: true
+            expect(response).to render_template(partial: 'project/_tasklist')
+            
+            
+            
         end
     end
 
@@ -44,24 +46,38 @@ RSpec.describe "Tasks", type: :request do
         it "should update a task" do
             
             params = {
-                task: "Update To Do", 
-                deadline: "2020-09-12 20:36:59",
-                status: true
+                "task": {
+                    "task": "Test Task"
+                },
+                "deadline": {
+                    "year": "2020",
+                    "month": "11",
+                    "day": "8",
+                    "hour": "00",
+                    "minute": "00"
+                },
+                "commit": "Save",
+                "controller": "task",
+                "action": "update",
+                "id": "66"
             }
+            deadline = DateTime.new(params[:deadline][:year].to_i, 
+            params[:deadline][:month].to_i, 
+            params[:deadline][:day].to_i, 
+            params[:deadline][:hour].to_i, 
+            params[:deadline][:minute].to_i, 
+            0)
             sign_in user
             project.user = user
             newproject = project.save
             task.project = project
             task.save
-            put :"/task/#{task.id}" , params: { id: task.id, task: params }
+            patch :"/task/#{task.id}" , params: params, xhr: true
             task.reload
-            params.keys.each do |key|
-                expect(task.attributes[key.to_s]).to eq params[key]
-            end
+            expect(task.task).to eq params[:task][:task]
+            expect(task.deadline).to eq deadline
             expect(flash[:notice]).to eq 'Task was successfully updated.'
-            
-            
-            
+              
         end
     end
 

@@ -39,6 +39,8 @@ gem 'twitter-bootstrap-rails'
 #Add Devise Bootstrap Views
 gem 'devise-bootstrap-views'
 
+#Add file uploader gem
+gem 'carrierwave'
 
 
 # Use Active Storage variant

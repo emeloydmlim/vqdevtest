@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ProjectTest < ActiveSupport::TestCase
     def setup
-        @projects = Project.new(name: "Project Name", description: "Project Description")
+        @projects = Project.new(name: "Project Name", description: "Project Description", created_at: DateTime.now, updated_at: DateTime.now)
       end
     
       test "name and description should be valid" do

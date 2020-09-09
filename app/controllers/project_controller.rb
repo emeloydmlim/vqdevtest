@@ -32,8 +32,8 @@ class ProjectController < ApplicationController
         
         if @project.save
             flash[:notice] = "New project added."
-            #redirect_to @project
-            render 'new'
+            redirect_to @project
+            
         else 
             render 'new'
         end

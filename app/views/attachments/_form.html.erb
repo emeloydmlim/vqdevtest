@@ -1,0 +1,36 @@
+<div class="card m-3">
+    <div class="card-header">
+        Upload File
+    </div>
+    <div class="card-body">
+        <%= form_with(model: attachment, remote: true , :html => {multipart: true, :class => "form-inline"})  do |form| %>
+        <% if attachment.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(attachment.errors.count, "error") %> prohibited this attachment from being saved:</h2>
+
+            <ul>
+                <% attachment.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+        <% end %>
+        <div class="field m-3">
+            <%= form.label :name %>
+            <%= form.text_field :name %>
+        </div>
+
+        <div class="field m-3">
+            <%= form.label :file %>
+            <%= form.file_field :file %>
+        </div>
+
+
+        <%= hidden_field_tag(:tid, @tasks.id) %>
+        <div class="actions m-3">
+
+            <%= form.submit :"Upload File" ,  class: "btn btn-primary" %>
+        </div>
+        <% end %>
+    </div>
+</div>

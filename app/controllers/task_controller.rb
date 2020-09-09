@@ -50,12 +50,13 @@ class TaskController < ApplicationController
         @tasks.destroy
         flash[:notice]='Task was successfully deleted.'
         respond_to do |format|
-            
             format.js { render partial: 'project/tasklist'}
         end
+        
     end
 
     def update
+
         deadline = DateTime.new(params[:deadline][:year].to_i, 
         params[:deadline][:month].to_i, 
         params[:deadline][:day].to_i, 
@@ -86,6 +87,8 @@ class TaskController < ApplicationController
             end
         end
     end
+
+    
 
 
     private
